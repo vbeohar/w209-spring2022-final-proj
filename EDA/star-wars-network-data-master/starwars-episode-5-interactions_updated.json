@@ -1,0 +1,366 @@
+{
+    "nodes": [
+        {
+            "group": "1",
+            "id": "LUKE",
+            "value": 44,
+            "colour": "#3881e5"
+        },
+        {
+            "group": "1",
+            "id": "HAN",
+            "value": 50,
+            "colour": "#ff9400"
+        },
+        {
+            "group": "1",
+            "id": "RIEEKAN",
+            "value": 7,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "LEIA",
+            "value": 45,
+            "colour": "#DCDCDC"
+        },
+        {
+            "group": "1",
+            "id": "C-3PO",
+            "value": 45,
+            "colour": "#FFD700"
+        },
+        {
+            "group": "1",
+            "id": "DERLIN",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "OBI-WAN",
+            "value": 3,
+            "colour": "#48D1CC"
+        },
+        {
+            "group": "1",
+            "id": "ZEV",
+            "value": 6,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "PIETT",
+            "value": 9,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "OZZEL",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "DARTH_VADER",
+            "value": 20,
+            "colour": "#000000"
+        },
+        {
+            "group": "1",
+            "id": "DACK",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "WEDGE",
+            "value": 8,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "JANSON",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "NEEDA",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "EMPEROR",
+            "value": 2,
+            "colour": "#191970"
+        },
+        {
+            "group": "1",
+            "id": "YODA",
+            "value": 6,
+            "colour": "#9ACD32"
+        },
+        {
+            "group": "1",
+            "id": "BOBA_FETT",
+            "value": 5,
+            "colour": "#808080"
+        },
+        {
+            "group": "1",
+            "id": "LANDO",
+            "value": 22,
+            "colour": "#808080"
+        }
+    ],
+    "links": [
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "LUKE",
+            "value": 4
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "RIEEKAN",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "LEIA",
+            "target": "RIEEKAN",
+            "value": 4
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "LEIA",
+            "value": 33
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "HAN",
+            "value": 27
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "DERLIN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "OBI-WAN",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "OBI-WAN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "ZEV",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LUKE",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LEIA",
+            "value": 23
+        },
+        {
+            "group": "1",
+            "source": "LEIA",
+            "target": "LUKE",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "RIEEKAN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "OZZEL",
+            "target": "PIETT",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "PIETT",
+            "value": 7
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "OZZEL",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "DERLIN",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DACK",
+            "target": "LUKE",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "WEDGE",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "JANSON",
+            "target": "WEDGE",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "ZEV",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "NEEDA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "NEEDA",
+            "target": "PIETT",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "EMPEROR",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "YODA",
+            "value": 5
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "PIETT",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "DARTH_VADER",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "LANDO",
+            "value": 7
+        },
+        {
+            "group": "1",
+            "source": "LANDO",
+            "target": "LEIA",
+            "value": 10
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LANDO",
+            "value": 7
+        },
+        {
+            "group": "1",
+            "source": "OBI-WAN",
+            "target": "YODA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "LANDO",
+            "value": 4
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "HAN",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "LANDO",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "C-3PO",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "DARTH_VADER",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "HAN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "LUKE",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "LANDO",
+            "target": "LUKE",
+            "value": 2
+        }
+    ]
+}
