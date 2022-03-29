@@ -1,0 +1,14 @@
+{
+  "links" : [
+  { "episode": 1, "source": "NUTE_GUNRAY", "target":"QUI-GON", "value": 10 },
+  { "episode": 1, "source": "PK-4", "target": "TC-14", "value": 11 },
+  { "episode": 1, "source": "OBI-WAN", "target": "TC-14", "value": 5 }
+],
+"nodes" : [
+  { "episode": "1", "id": "QUI-GON", "value": 60, "colour": "#4f4fb1" },
+  { "episode": "1", "id": "NUTE_GUNRAY", "value": 18, "colour": "#808080" },
+  { "episode": "1", "id": "PK-4", "value": 2, "colour": "#808080" },
+  { "episode": "1", "id": "TC-14", "value": 4, "colour": "#808080" },
+  { "episode": "1", "id": "OBI-WAN", "value": 33, "colour": "#48D1CC" }
+]
+}
