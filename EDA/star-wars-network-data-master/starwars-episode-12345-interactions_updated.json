@@ -323,596 +323,446 @@
             "id": "PLO_KOON",
             "value": 2,
             "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "ODD_BALL",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "GENERAL_GRIEVOUS",
+            "value": 12,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "FANG_ZAR",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "MON_MOTHMA",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "GIDDEAN_DANU",
+            "value": 2,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "CLONE_COMMANDER_GREE",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "CLONE_COMMANDER_CODY",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "TION_MEDON",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "CAPTAIN_ANTILLES",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "DARTH_VADER",
+            "value": 4,
+            "colour": "#000000"
+        },
+        {
+            "group": "3",
+            "id": "LUKE",
+            "value": 88,
+            "colour": "#3881e5"
+        },
+        {
+            "group": "3",
+            "id": "CAMIE",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "BIGGS",
+            "value": 18,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "LEIA",
+            "value": 25,
+            "colour": "#DCDCDC"
+        },
+        {
+            "group": "3",
+            "id": "MOTTI",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "TARKIN",
+            "value": 12,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "HAN",
+            "value": 44,
+            "colour": "#ff9400"
+        },
+        {
+            "group": "3",
+            "id": "DODONNA",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "GOLD_LEADER",
+            "value": 14,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "WEDGE",
+            "value": 15,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "RED_LEADER",
+            "value": 33,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "RED_TEN",
+            "value": 8,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "GOLD_FIVE",
+            "value": 8,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "RIEEKAN",
+            "value": 7,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "DERLIN",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "ZEV",
+            "value": 6,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "PIETT",
+            "value": 9,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "OZZEL",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "DACK",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "JANSON",
+            "value": 4,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "NEEDA",
+            "value": 3,
+            "colour": "#808080"
+        },
+        {
+            "group": "3",
+            "id": "LANDO",
+            "value": 22,
+            "colour": "#808080"
         }
     ],
     "links": [
         {
             "group": "1",
-            "source": "EMPEROR",
-            "target": "SENATOR_ASK_AAK",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "ORN_FREE_TAA",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "ORN_FREE_TAA",
-            "target": "SENATOR_ASK_AAK",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "MACE_WINDU",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "YODA",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "KI-ADI-MUNDI",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "EMPEROR",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "MACE_WINDU",
-            "target": "YODA",
-            "value": 8
-        },
-        {
-            "group": "1",
-            "source": "KI-ADI-MUNDI",
-            "target": "MACE_WINDU",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "MACE_WINDU",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "KI-ADI-MUNDI",
-            "target": "YODA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "YODA",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "KI-ADI-MUNDI",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "OBI-WAN",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "JAR_JAR",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "OBI-WAN",
-            "value": 13
-        },
-        {
-            "group": "1",
-            "source": "CAPTAIN_TYPHO",
-            "target": "JAR_JAR",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "CAPTAIN_TYPHO",
-            "target": "OBI-WAN",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "CAPTAIN_TYPHO",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "PADME",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "PADME",
-            "value": 16
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "PK-4",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "SIO_BIBBLE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "PADME",
-            "target": "SOLA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "SOLA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JOBAL",
-            "target": "SOLA",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "RUWEE",
-            "target": "SOLA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JOBAL",
-            "target": "PADME",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "PADME",
-            "target": "RUWEE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "JOBAL",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "RUWEE",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "JOBAL",
-            "target": "RUWEE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "YODA",
-            "value": 5
-        },
-        {
-            "group": "1",
-            "source": "MACE_WINDU",
-            "target": "OBI-WAN",
+            "source": "HAN",
+            "target": "LUKE",
             "value": 4
         },
         {
             "group": "1",
+            "source": "HAN",
+            "target": "RIEEKAN",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "LEIA",
+            "target": "RIEEKAN",
+            "value": 4
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "LEIA",
+            "value": 33
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "HAN",
+            "value": 27
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "DERLIN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "OBI-WAN",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "OBI-WAN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "ZEV",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LUKE",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LEIA",
+            "value": 23
+        },
+        {
+            "group": "1",
+            "source": "LEIA",
+            "target": "LUKE",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "RIEEKAN",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "OZZEL",
+            "target": "PIETT",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "PIETT",
+            "value": 7
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "OZZEL",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "DERLIN",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DACK",
+            "target": "LUKE",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "WEDGE",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "JANSON",
+            "target": "WEDGE",
+            "value": 2
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "ZEV",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "NEEDA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "NEEDA",
+            "target": "PIETT",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "EMPEROR",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "LUKE",
+            "target": "YODA",
+            "value": 5
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "PIETT",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "BOBA_FETT",
+            "target": "DARTH_VADER",
+            "value": 3
+        },
+        {
+            "group": "1",
+            "source": "HAN",
+            "target": "LANDO",
+            "value": 7
+        },
+        {
+            "group": "1",
+            "source": "LANDO",
+            "target": "LEIA",
+            "value": 10
+        },
+        {
+            "group": "1",
+            "source": "C-3PO",
+            "target": "LANDO",
+            "value": 7
+        },
+        {
+            "group": "1",
             "source": "OBI-WAN",
-            "target": "TAUN_WE",
-            "value": 5
+            "target": "YODA",
+            "value": 1
         },
         {
             "group": "1",
-            "source": "LAMA_SU",
-            "target": "TAUN_WE",
-            "value": 2
+            "source": "DARTH_VADER",
+            "target": "LANDO",
+            "value": 4
         },
         {
             "group": "1",
-            "source": "LAMA_SU",
-            "target": "OBI-WAN",
-            "value": 6
-        },
-        {
-            "group": "1",
-            "source": "BOBA_FETT",
-            "target": "TAUN_WE",
+            "source": "DARTH_VADER",
+            "target": "HAN",
             "value": 2
         },
         {
             "group": "1",
             "source": "BOBA_FETT",
-            "target": "JANGO_FETT",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "BOBA_FETT",
-            "target": "OBI-WAN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JANGO_FETT",
-            "target": "TAUN_WE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JANGO_FETT",
-            "target": "OBI-WAN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "WATTO",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "C-3PO",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "C-3PO",
-            "target": "PADME",
-            "value": 5
-        },
-        {
-            "group": "1",
-            "source": "C-3PO",
-            "target": "OWEN",
+            "target": "LANDO",
             "value": 2
         },
         {
             "group": "1",
-            "source": "BERU",
+            "source": "BOBA_FETT",
             "target": "C-3PO",
             "value": 1
         },
         {
             "group": "1",
             "source": "C-3PO",
-            "target": "CLIEGG",
+            "target": "DARTH_VADER",
             "value": 1
         },
         {
             "group": "1",
-            "source": "ANAKIN",
-            "target": "OWEN",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "BERU",
+            "source": "BOBA_FETT",
+            "target": "HAN",
             "value": 1
         },
         {
             "group": "1",
-            "source": "ANAKIN",
-            "target": "CLIEGG",
+            "source": "BOBA_FETT",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "LEIA",
+            "value": 1
+        },
+        {
+            "group": "1",
+            "source": "DARTH_VADER",
+            "target": "LUKE",
             "value": 2
         },
         {
             "group": "1",
-            "source": "BERU",
-            "target": "OWEN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "OWEN",
-            "target": "PADME",
-            "value": 4
-        },
-        {
-            "group": "1",
-            "source": "CLIEGG",
-            "target": "OWEN",
+            "source": "LANDO",
+            "target": "LUKE",
             "value": 2
-        },
-        {
-            "group": "1",
-            "source": "BERU",
-            "target": "PADME",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BERU",
-            "target": "CLIEGG",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "CLIEGG",
-            "target": "PADME",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "SHMI",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "OBI-WAN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "OBI-WAN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "SENATOR_ASK_AAK",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "SENATOR_ASK_AAK",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "BAIL_ORGANA",
-            "target": "JAR_JAR",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "EMPEROR",
-            "target": "JAR_JAR",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "SENATOR_ASK_AAK",
-            "target": "YODA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "YODA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "MACE_WINDU",
-            "target": "SENATOR_ASK_AAK",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "MACE_WINDU",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "SENATOR_ASK_AAK",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "PADME",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "MACE_WINDU",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "MACE_WINDU",
-            "target": "PADME",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "JAR_JAR",
-            "target": "ORN_FREE_TAA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "PADME",
-            "value": 3
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "JANGO_FETT",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "POGGLE",
-            "target": "SUN_RIT",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "NUTE_GUNRAY",
-            "target": "SUN_RIT",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "NUTE_GUNRAY",
-            "target": "POGGLE",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "SUN_RIT",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "OBI-WAN",
-            "target": "POGGLE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "NUTE_GUNRAY",
-            "target": "OBI-WAN",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "OBI-WAN",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "SUN_RIT",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "POGGLE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "NUTE_GUNRAY",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "COUNT_DOOKU",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "PADME",
-            "target": "SUN_RIT",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "SUN_RIT",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "PADME",
-            "target": "POGGLE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "POGGLE",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "NUTE_GUNRAY",
-            "target": "PADME",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "NUTE_GUNRAY",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "MACE_WINDU",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "KI-ADI-MUNDI",
-            "target": "PLO_KOON",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "YODA",
-            "value": 2
-        },
-        {
-            "group": "1",
-            "source": "PADME",
-            "target": "YODA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "ANAKIN",
-            "target": "YODA",
-            "value": 1
-        },
-        {
-            "group": "1",
-            "source": "COUNT_DOOKU",
-            "target": "EMPEROR",
-            "value": 1
         }
     ]
 }
