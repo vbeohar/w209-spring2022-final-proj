@@ -1,109 +1,109 @@
 {
     "nodes": [
         {
-            "group": "1",
+            "group": "6",
             "id": "JERJERROD",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "DARTH_VADER",
             "value": 12,
             "colour": "#000000"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "C-3PO",
             "value": 32,
             "colour": "#FFD700"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "BIB_FORTUNA",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "JABBA",
             "value": 4,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "LUKE",
             "value": 30,
             "colour": "#3881e5"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "BOUSHH",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "HAN",
             "value": 32,
             "colour": "#ff9400"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "LEIA",
             "value": 21,
             "colour": "#DCDCDC"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "LANDO",
             "value": 20,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "EMPEROR",
             "value": 10,
             "colour": "#191970"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "YODA",
             "value": 2,
             "colour": "#9ACD32"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "OBI-WAN",
             "value": 2,
             "colour": "#48D1CC"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "MON_MOTHMA",
             "value": 2,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "ADMIRAL_ACKBAR",
             "value": 9,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "PIETT",
             "value": 4,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "WEDGE",
             "value": 7,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "6",
             "id": "ANAKIN",
             "value": 2,
             "colour": "#ce3b59"
@@ -111,247 +111,247 @@
     ],
     "links": [
         {
-            "group": "1",
+            "group": "6",
             "source": "DARTH_VADER",
             "target": "JERJERROD",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BIB_FORTUNA",
             "target": "C-3PO",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "JABBA",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "LUKE",
             "value": 10
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "JABBA",
             "target": "LUKE",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BOUSHH",
             "target": "JABBA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BOUSHH",
             "target": "C-3PO",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BOUSHH",
             "target": "HAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BOUSHH",
             "target": "LEIA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "HAN",
             "target": "LEIA",
             "value": 18
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "HAN",
             "value": 18
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "LEIA",
             "value": 15
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BIB_FORTUNA",
             "target": "LUKE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "BIB_FORTUNA",
             "target": "JABBA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "HAN",
             "target": "LUKE",
             "value": 13
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LEIA",
             "target": "LUKE",
             "value": 8
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LANDO",
             "target": "LUKE",
             "value": 4
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "HAN",
             "target": "LANDO",
             "value": 5
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LANDO",
             "target": "LEIA",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "DARTH_VADER",
             "target": "EMPEROR",
             "value": 5
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LUKE",
             "target": "YODA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LUKE",
             "target": "OBI-WAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "HAN",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "HAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LANDO",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "LANDO",
             "value": 5
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "LANDO",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "C-3PO",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LEIA",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LUKE",
             "target": "MON_MOTHMA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "C-3PO",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "LEIA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "LUKE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "DARTH_VADER",
             "target": "PIETT",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "DARTH_VADER",
             "target": "LUKE",
             "value": 5
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "EMPEROR",
             "target": "LUKE",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "LANDO",
             "target": "WEDGE",
             "value": 6
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ADMIRAL_ACKBAR",
             "target": "WEDGE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ANAKIN",
             "target": "DARTH_VADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "6",
             "source": "ANAKIN",
             "target": "LUKE",
             "value": 1

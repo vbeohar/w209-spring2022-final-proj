@@ -1,121 +1,121 @@
 {
     "nodes": [
         {
-            "group": "1",
+            "group": "4",
             "id": "C-3PO",
             "value": 42,
             "colour": "#FFD700"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "LUKE",
             "value": 88,
             "colour": "#3881e5"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "DARTH_VADER",
             "value": 25,
             "colour": "#000000"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "CAMIE",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "BIGGS",
             "value": 18,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "LEIA",
             "value": 25,
             "colour": "#DCDCDC"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "BERU",
             "value": 5,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "OWEN",
             "value": 6,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "OBI-WAN",
             "value": 22,
             "colour": "#48D1CC"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "MOTTI",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "TARKIN",
             "value": 12,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "HAN",
             "value": 44,
             "colour": "#ff9400"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "GREEDO",
             "value": 2,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "JABBA",
             "value": 2,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "DODONNA",
             "value": 3,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "GOLD_LEADER",
             "value": 14,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "WEDGE",
             "value": 15,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "RED_LEADER",
             "value": 33,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "RED_TEN",
             "value": 8,
             "colour": "#808080"
         },
         {
-            "group": "1",
+            "group": "4",
             "id": "GOLD_FIVE",
             "value": 8,
             "colour": "#808080"
@@ -123,277 +123,277 @@
     ],
     "links": [
         {
-            "group": "1",
+            "group": "4",
             "source": "CAMIE",
             "target": "LUKE",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "CAMIE",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "LUKE",
             "value": 4
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DARTH_VADER",
             "target": "LEIA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BERU",
             "target": "LUKE",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BERU",
             "target": "OWEN",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BERU",
             "target": "C-3PO",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LUKE",
             "target": "OWEN",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "LUKE",
             "value": 18
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "OWEN",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "LEIA",
             "value": 6
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LEIA",
             "target": "LUKE",
             "value": 17
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BERU",
             "target": "LEIA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LUKE",
             "target": "OBI-WAN",
             "value": 19
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "OBI-WAN",
             "value": 6
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LEIA",
             "target": "OBI-WAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "MOTTI",
             "target": "TARKIN",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DARTH_VADER",
             "target": "MOTTI",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DARTH_VADER",
             "target": "TARKIN",
             "value": 7
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "HAN",
             "target": "OBI-WAN",
             "value": 9
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "HAN",
             "target": "LUKE",
             "value": 26
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "GREEDO",
             "target": "HAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "HAN",
             "target": "JABBA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "HAN",
             "value": 6
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LEIA",
             "target": "MOTTI",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LEIA",
             "target": "TARKIN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "HAN",
             "target": "LEIA",
             "value": 13
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DARTH_VADER",
             "target": "OBI-WAN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DODONNA",
             "target": "GOLD_LEADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DODONNA",
             "target": "WEDGE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "DODONNA",
             "target": "LUKE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "GOLD_LEADER",
             "target": "WEDGE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "GOLD_LEADER",
             "target": "LUKE",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LUKE",
             "target": "WEDGE",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "LEIA",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LEIA",
             "target": "RED_LEADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LUKE",
             "target": "RED_LEADER",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "RED_LEADER",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "C-3PO",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "C-3PO",
             "target": "RED_LEADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "RED_LEADER",
             "target": "WEDGE",
             "value": 3
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "GOLD_LEADER",
             "target": "RED_LEADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "WEDGE",
             "value": 2
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "RED_LEADER",
             "target": "RED_TEN",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "BIGGS",
             "target": "GOLD_LEADER",
             "value": 1
         },
         {
-            "group": "1",
+            "group": "4",
             "source": "LUKE",
             "target": "RED_TEN",
             "value": 1
