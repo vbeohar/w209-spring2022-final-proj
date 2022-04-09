@@ -53,6 +53,12 @@
         position: absolute;
       }
 
+      .table-row-highlight{
+        border: 1px solid grey;
+      }
+
+
+      
   </style>
 
 </head>
@@ -147,12 +153,19 @@
 
 
   <BR><BR><BR><BR>
+    <table class="center">
+        <tr class="table-row-highlight">
+          <td><i>A journey of characters in the Star Wars franchise using D3's Force Directed Graph library. <br>
+                 Use the slider below to move across episodes to visualiaze how the "social network" of characters evolves in the series. <br>
+                 Characters that die or with no interactions in episodes are shown as orphan nodes on the right side of the graph. <br>
+                 The table on the right updates for degree and betweenness measures for each episode.</i></td>
+        </tr>
+      </table>
   <table class="center">
       <tr>
         <td><div id="observablehq-viewof-episode-6fc67812"></div></td>
       </tr>
     </table>
-    <BR><BR><BR><BR>
 
   <main class="container-fluid"> 
     <div class="row no-gutters">
