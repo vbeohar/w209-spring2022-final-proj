@@ -30,6 +30,14 @@
   <link href="static/css/style.css" rel="stylesheet">
   <!-- <link href="/Users/rohitkshatriya/w209/FinalProject/Flask/w209/assets/css/style.css" rel="stylesheet"> -->
   <!-- <link href="{{ url_for('static', filename='style.css')}}" rel="stylesheet"> -->
+  <script>
+    var myModal = document.getElementById('myModal');
+    var myInput = document.getElementById('myInput');
+    myModal.addEventListener('shown.bs.modal', function () {
+      myInput.focus();
+    });
+  </script>
+
   <style>
       table, th, td {
         border: 0px solid black;
@@ -56,14 +64,75 @@
       .table-row-highlight{
         border: 1px solid grey;
       }
-
-
-      
   </style>
 
 </head>
 
 <body>
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Degree Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <b>Definition: </b>Degree centrality assigns an importance score based simply on the number of links held by each node. <br>
+            <b>What it tells us: </b> many direct, ‘one hop’ connections each node has to other nodes in the network. <br>
+            <b>When to use it: </b> finding very connected individuals, popular individuals, individuals who are likely to hold most information or individuals who can quickly connect with the wider network. <br>
+            <b>A bit more detail: </b> centrality is the simplest measure of node connectivity. Sometimes it’s useful to look at in-degree (number of inbound links) and out-degree (number of outbound links) as distinct measures, for example when looking at transactional data or account activity. <br><br><br>
+            For more info, have a look at this <a href="https://cambridge-intelligence.com/keylines-faqs-social-network-analysis/" target="_blank">interesting article</a>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Betweenness Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <b>Definition: </b> centrality measures the number of times a node lies on the shortest path between other nodes. <br>
+            <b>What it tells us: </b> measure shows which nodes are ‘bridges’ between nodes in a network. It does this by identifying all the shortest paths and then counting how many times each node falls on one. <br>
+            <b>When to use it: </b> finding the individuals who influence the flow around a system. <br>
+            <b>A bit more detail: </b> is useful for analyzing communication dynamics, but should be used with care. A high betweenness count could indicate someone holds authority over disparate clusters in a network, or just that they are on the periphery of both clusters.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Closeness Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <b> Definition: </b> centrality scores each node based on their ‘closeness’ to all other nodes in the network. <br>
+          <b> What it tells us: </b> measure calculates the shortest paths between all nodes, then assigns each node a score based on its sum of shortest paths. <br>
+          <b> When to use it: </b> finding the individuals who are best placed to influence the entire network most quickly. <br>
+          <b> A bit more detail: </b> centrality can help find good ‘broadcasters’, but in a highly-connected network, you will often find all nodes have a similar score. What may be more useful is using Closeness to find influencers in a single cluster.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -77,6 +146,7 @@
           <li><a class="nav-link scrollto active" href="#charts">Home</a></li>
           <li class="dropdown"><a href="#"><span>Project Overview</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
+              <li><a href="#results">Dataset</a></li>
               <li><a href="#overview">Dataset</a></li>
               <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -93,10 +163,14 @@
               <li><a href="#faq">Design Considerations</a></li>
             </ul>
           </li>
+          <li class="dropdown"><a href="#"><span>Code & Report</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://github.com/vbeohar/w209-spring2022-final-proj" target="_blank">Github</a></li>
+              <li><a href="https://observablehq.com/@berkeleyvis/star-wars-viz-with-network-metrics" target="_blank">Observable Notebook (D3)</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1SiHLrY5Lz6HXyg4sxy-m8RXqzlkdl_rE6LE0k8LXuTI/edit#slide=id.g123289f6a56_0_180" target="_blank">Final report</a></li>
+            </ul>
+          </li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <!-- <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
-          <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-          <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -198,6 +272,36 @@
     </div>
    </section> -->
 
+  <!-- ======= Results Section ======= -->
+  <section id="results" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Results Overview</h2>
+        <h4>A quick snapshot of results from our Star Wars social network visualization project!</h4>
+        <h6>Further discussions on our course <a href="https://github.com/vbeohar/w209-spring2022-final-proj" target="_blank">github repo</a></h6>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <ul>
+            <li><i class="ri-check-double-line"></i> Social networks attain peak density in episodes one & two and subsequently fade out as the series progresses</li>
+            <li><i class="ri-check-double-line"></i> Episode two has the highest number of characters in the series and the most "connectedness" (as seen in the the graph visualization)</li>
+            <li><i class="ri-check-double-line"></i> Some characters have a recurring appearing in subsequent episodes even when the die earlier in the series (e.g. Qui-Gon in episode 3)</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Network metrics and importance of characters - 
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> TBD </li>
+            <li><i class="ri-check-double-line"></i> TBD </li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </section> -->
+
+
   <!-- ======= Overview Section ======= -->
   <section id="overview" class="about">
     <div class="container" data-aos="fade-up">
@@ -244,6 +348,8 @@
             <div class="icon-box iconbox-blue">
               <h4><a href="">Degree Centrality</a></h4>
               <p>Degree centrality is the simplest measure of node connectivity. Sometimes it’s useful to look at in-degree (number of inbound links) and out-degree (number of outbound links) as distinct measures.</p>
+              <BR><BR>              
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal1">More info</button>
             </div>
           </div>
 
@@ -251,6 +357,8 @@
             <div class="icon-box iconbox-orange ">
               <h4><a href="">Betweenness Centrality</a></h4>
               <p>Betweenness is useful for analyzing communication dynamics, but should be used with care. A high betweenness count could indicate someone holds authority over disparate clusters in a network, or just that they are on the periphery of both clusters.</p>
+              <BR>
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal2">More info</button>
             </div>
           </div>
 
@@ -258,6 +366,8 @@
             <div class="icon-box iconbox-pink">
               <h4><a href="">Closeness Centrality</a></h4>
               <p>Closeness centrality can help find good ‘broadcasters’, but in a highly-connected network, you will often find all nodes have a similar score. What may be more useful is using Closeness to find influencers in a single cluster.</p>
+              <BR><BR>
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal3">More info</button>
             </div>
           </div>
 
@@ -819,7 +929,7 @@ new Runtime().module(define, name => {
               <div class="member-img">
                 <img src="static/assets/img/team/Vaibhav.png" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/beohar/" target="_blank"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -834,7 +944,7 @@ new Runtime().module(define, name => {
               <div class="member-img">
                 <img src="static/assets/img/team/Vaishali.jpeg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/khandelwalvaishali/" target="_blank"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -849,7 +959,7 @@ new Runtime().module(define, name => {
               <div class="member-img">
                 <img src="static/assets/img/team/Rohit.jpeg" class="img-fluid" alt="">
                 <div class="social">
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/sroheeth/" target="_blank"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -1041,9 +1151,9 @@ new Runtime().module(define, name => {
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Learn D3.js</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Force Directed Graphs</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Data Fabric</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://observablehq.com/@d3/learn-d3" target="_blank">Learn D3.js</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/d3/d3-force" target="_blank">Force Directed Graphs</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/evelinag/StarWars-social-network" target="_blank">Data Fabric & citation</a></li>
             </ul>
           </div>
 
