@@ -15,3 +15,6 @@ UC Berkeley - MIDS - w209 Spring 2022 term
 
 ## Credits 
 - We adapted our study from the Star Wars analysis conducted by Evalina Gabasova. Link here https://github.com/evelinag/StarWars-social-network. 
+
+## Contributors
+- Rohit Srinivas, Vaibhav Beohar, Vaishali Khandelwal (MIDS, Spring 2022)
