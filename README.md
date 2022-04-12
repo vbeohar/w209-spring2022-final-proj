@@ -9,3 +9,6 @@ UC Berkeley - MIDS - w209 Spring 2022 term
 
 ## Usability study 
 - We conducted a mid-term usability study to assess feedback. ([Here is our study](./files/Usability_Study.pdf))
+
+## Credits 
+- We adapted our study from the Star Wars analysis conducted by Evalina Gabasova. Link here https://github.com/evelinag/StarWars-social-network. 
