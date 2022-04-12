@@ -8,4 +8,4 @@ UC Berkeley - MIDS - w209 Spring 2022 term
 - We also have our Flask based site running on Berkeley's servers! This link here https://apps-spring21.ischool.berkeley.edu/~vbeohar/w209/ is where we will host our final project (already updated with the sample viz)
 
 ## Usability study 
-- We conducted a mid-term usability study to assess feedback. ([Here is our study](./files/Usability Study.pdf))
+- We conducted a mid-term usability study to assess feedback. ([Here is our study](./files/"Usability Study.pdf"))
