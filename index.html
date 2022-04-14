@@ -1,1 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Star Wars Visualization using D3</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="w209/assets/img/starwaricon.jpeg" rel="icon">
+  <link href="w209/assets/img/starwaricon.png" rel="starwars-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="w209/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="w209/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <!-- Template Main CSS File -->
+  <link href="w209/static/css/style.css" rel="stylesheet">
+  <!-- <link href="/Users/rohitkshatriya/w209/FinalProject/Flask/w209/assets/css/style.css" rel="stylesheet"> -->
+  <!-- <link href="{{ url_for('w209/static', filename='style.css')}}" rel="stylesheet"> -->
+  <script>
+    var myModal = document.getElementById('myModal');
+    var myInput = document.getElementById('myInput');
+    myModal.addEventListener('shown.bs.modal', function () {
+      myInput.focus();
+    });
+  </script>
+
+  <style>
+      table, th, td {
+        border: 0px solid black;
+        border-collapse: collapse;
+      }
+
+      table.center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+
+  <style type="text/css">
+      .tooltip {
+        fill: white;
+        font-family: sans-serif;
+        padding: 5px;
+        display: flex,
+        border-radius: 5px;
+        border: 1px solid grey;
+        position: absolute;
+      }
+
+      .table-row-highlight{
+        border: 1px solid grey;
+      }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Degree Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <b>Definition: </b>Degree centrality assigns an importance score based simply on the number of links held by each node. <br>
+            <b>What it tells us: </b> many direct, ‘one hop’ connections each node has to other nodes in the network. <br>
+            <b>When to use it: </b> finding very connected individuals, popular individuals, individuals who are likely to hold most information or individuals who can quickly connect with the wider network. <br>
+            <b>A bit more detail: </b> centrality is the simplest measure of node connectivity. Sometimes it’s useful to look at in-degree (number of inbound links) and out-degree (number of outbound links) as distinct measures, for example when looking at transactional data or account activity. <br><br><br>
+            For more info, have a look at this <a href="https://cambridge-intelligence.com/keylines-faqs-social-network-analysis/" target="_blank">interesting article</a>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Betweenness Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <b>Definition: </b> centrality measures the number of times a node lies on the shortest path between other nodes. <br>
+            <b>What it tells us: </b> measure shows which nodes are ‘bridges’ between nodes in a network. It does this by identifying all the shortest paths and then counting how many times each node falls on one. <br>
+            <b>When to use it: </b> finding the individuals who influence the flow around a system. <br>
+            <b>A bit more detail: </b> is useful for analyzing communication dynamics, but should be used with care. A high betweenness count could indicate someone holds authority over disparate clusters in a network, or just that they are on the periphery of both clusters.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Closeness Centrality</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <b> Definition: </b> centrality scores each node based on their ‘closeness’ to all other nodes in the network. <br>
+          <b> What it tells us: </b> measure calculates the shortest paths between all nodes, then assigns each node a score based on its sum of shortest paths. <br>
+          <b> When to use it: </b> finding the individuals who are best placed to influence the entire network most quickly. <br>
+          <b> A bit more detail: </b> centrality can help find good ‘broadcasters’, but in a highly-connected network, you will often find all nodes have a similar score. What may be more useful is using Closeness to find influencers in a single cluster.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="https://apps-spring21.ischool.berkeley.edu/~rohit/w209">D3 Force</a></h1>
+      <a href="https://apps-spring21.ischool.berkeley.edu/~rohit/w209" class="logo"><img src="w209/static/assets/img/starwarslogo.png" alt="" class="img-fluid"></a>
+
+       <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#charts">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Project Overview</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#overview">Dataset</a></li>
+              <!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li> -->
+              <li><a href="#measures">Centrality Measures</a></li>
+              <li><a href="#FDG">Force Directed Graphs</a></li>
+              <li><a href="#about-video">Why Graph?</a></li>
+              <li><a href="#faq">Design Considerations</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#"><span>Code & Report</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://github.com/vbeohar/w209-spring2022-final-proj" target="_blank">Github</a></li>
+              <li><a href="https://observablehq.com/@berkeleyvis/star-wars-viz-with-network-metrics" target="_blank">D3 code (Observable@MIT License)</a></li>
+              <li><a href="https://docs.google.com/presentation/d/1_uM9cls70FAyHTXHy-r6BE-ufx68ISpm/edit?usp=sharing&ouid=110644951617576202368&rtpof=true&sd=true" target="_blank">Final report</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto active" href="https://github.com/evelinag/StarWars-social-network" target="_blank">Citation</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header>
+  <!--End Header  -->
+
+  <!-- ======= Hero Section ======= -->
+  <!-- <section id="hero" class="d-flex align-items-center">
+    <div class="split-container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="text-center chart-container">
+        <h1>Star Wars Visualization using D3 Force Directed Graph</h1>
+      </div> -->
+      <!-- <div class="row justify-content-center"> keep this commented -->
+      <!-- <div class="split-content position-relative"">
+        <div id="observablehq-viewof-episode-6fc67812"></div>
+      </div>
+      <div class="split-content">
+        <div class="data-chart" id="observablehq-chart2-6fc67812"></div>
+      </div>
+      <div class="split-content" width: "40%">
+        <div class="data-table" id="observablehq-table_metrics-6fc67812"></div>
+      </div>
+
+    </div>
+  </section> -->
+
+  <!-- <section id="hero1" class="d-flex align-items-center" data-aos="fade-up" data-aos-delay="100">
+    <div class="text-center chart-container">
+      <h1>Star Wars Visualization using D3 Force Directed Graph</h1>
+    </div>
+  </section> -->
+
+  <!-- <section id="hero"></section> -->
+
+  <!-- <BR><BR><BR><BR>
+
+    <table class="center">
+        <tr>
+          <td><div id="observablehq-viewof-episode-6fc67812"></div></td>
+        </tr>
+      </table>
+
+    <div class="data-chart" id="observablehq-chart2-6fc67812"></div>
+
+    <table class="center">
+        <tr>
+          <td><div class="row justify-content-md-center" id="observablehq-table_metrics-6fc67812"></div></td>
+        </tr>
+      </table> -->
+
+
+  <BR><BR><BR><BR>
+    <table class="center">
+        <tr class="table-row-highlight">
+          <td><i>A journey of characters in the Star Wars franchise using D3's Force Directed Graph library. <br>
+                 Use the slider below to move across episodes to visualiaze how the "social network" of characters evolves in the series. <br>
+                 Characters that die or with no interactions in episodes are shown as orphan nodes on the right side of the graph. <br>
+                 The table on the right updates for degree and betweenness measures for each episode.</i></td>
+        </tr>
+      </table>
+  <table class="center">
+      <tr>
+        <td><div id="observablehq-viewof-episode-6fc67812"></div></td>
+      </tr>
+    </table>
+
+  <main id="charts" class="container-fluid">
+    <div class="row no-gutters">
+      <div class="col-sm-8"><div class="data-chart" id="observablehq-chart2-6fc67812"></div></div>
+      <div class="col-sm-4"><div class="data-table" id="observablehq-table_metrics-6fc67812"></div></div>
+  </main>
+
+  <!-- <section id="hero-new" class="d-flex align-items-center">
+    <div class="split-container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="split-content">
+        <div class="data-chart" id="observablehq-chart2-6fc67812"></div>
+      </div>
+      <div class="split-content">
+        <div class="data-table" id="observablehq-table_metrics-6fc67812"></div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- <section id="hero-chart" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="data-chart" id="observablehq-chart2-6fc67812"></div>
+      </div>
+    </div>
+   </section>
+
+   <section id="hero-table" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="data-table" id="observablehq-table_metrics-6fc67812"></div>
+      </div>
+    </div>
+   </section> -->
+
+  <!-- ======= Results Section ======= -->
+  <section id="results" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Results Overview</h2>
+        <h4>A quick snapshot of results from our Star Wars social network visualization project!</h4>
+        <h6>More details on our course <a href="https://github.com/vbeohar/w209-spring2022-final-proj" target="_blank">github repo</a></h6>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <ul>
+            <li><i class="ri-check-double-line"></i> As you can see on the graph visualizations, the nodes represent characters in the movies and are connected by a link if they both speak in the same scene. The thickness of the links is dictated by the volume of direct character interactions. The size of each node corresponds to the total number of scenes the character appears in. </li>
+            <li><i class="ri-check-double-line"></i> Social networks attain peak density in episodes 1 & 2 and subsequently fade out as the series progresses (which is not necessarily a bad thing)</li>
+            <li><i class="ri-check-double-line"></i> Episode 1 has the highest number of characters in the series and the most "connectedness" (as seen in the the graph visualization)</li>
+            <li><i class="ri-check-double-line"></i> Some characters have a recurring appearing in subsequent episodes even when the die earlier in the series (e.g. Qui-Gon in episode 3)</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Network metrics and character importance:
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> <B> Original Trilogy (Episodes 4, 5 and 6): </B> The original trilogy series are sparser with lesser characters than the prequels. This results in more social interactions, leading to more linear story lines and ease of narration. One can also notice that the smaller number of central characters also leads to tighter cohesion of degree and betweenness centrality measures.
+            </li>
+            <li><i class="ri-check-double-line"></i> <B> Prequel Trilogy (Episodes 1, 2 and 3): </B> Qui-Gon is the most important character in episode 1; but then dies in episode 2 (as can be seen by an orphan node on the right). Anakin then becomes the most connected character in episode 2, while Obi-Wan Kanobi is not too far behind. Thus, it's really interesting to see the interplay of character importance across different episodes in the prequels.
+            </li>
+            <li><i class="ri-check-double-line"></i> The prequel trilogy has more nodes overall, with many more connections (as can be seen by larger social networks with denser connections). It is also interesting to note that though Anakin is one of the most important characters, his network metrics are not always the highest! This means that though overall he's the most connected character in the films (high degree centrality), not all relations necessarily flow "through" him (low betweenness scores)</li>
+            <li><i class="ri-check-double-line"></i> TL;DR Prequel trilogy has more overall characters, but no centrality. The stories are not bound by a central character (even though Anakin should be binding them all together).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <!-- ======= Overview Section ======= -->
+  <section id="overview" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Data Overview</h2>
+        <h4>Data representing characters and their interactions for all seven movies has been extracted from the script and mined here. For each episode, the dataset includes:</h4>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <ul>
+            <li><i class="ri-check-double-line"></i> Social network with links between characters defined by characters speaking in the same scene</li>
+            <li><i class="ri-check-double-line"></i> Social network with links between characters defined by the number of times they are mentioned in the same scene</li>
+            <li><i class="ri-check-double-line"></i> Social network with character links and mentions for all 6 episodes</li>
+          </ul>
+          <!-- <p>
+            <b>Betweenness:</b> Nodes with a high betweenness centrality score are the ones that most frequently act as ‘bridges’ between other nodes. They form the shortest pathways of communication within the network..<br><br>
+            <b>Degree of Centrality:</b> The degree centrality measure finds nodes with the highest number of links to other nodes in the network. Nodes with a high degree centrality have the best connections to those around them – they might be influential, or just strategically well-placed.
+          </p> -->
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            As a first step, we performed EDA on the dataset to ensure -
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> It fits a graph structure</li>
+            <li><i class="ri-check-double-line"></i> Aligns with our intuition of Star Wars world</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+    <!-- ======= Measures Section ======= -->
+    <section id="measures" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Centrality Measures</h2>
+          <p>Centrality measures are a vital tool for understanding networks, often also known as graphs. These algorithms use graph theory to calculate the importance of any given node in a network. They cut through noisy data, revealing parts of the network that need attention – but they all work differently. Each measure has its own definition of ‘importance’, so you need to understand how they work to find the best one for your graph visualization applications.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+              <h4><a href="">Degree Centrality</a></h4>
+              <p>Degree centrality is the simplest measure of node connectivity. Sometimes it’s useful to look at in-degree (number of inbound links) and out-degree (number of outbound links) as distinct measures.</p>
+              <BR><BR>
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal1">More info</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box iconbox-orange ">
+              <h4><a href="">Betweenness Centrality</a></h4>
+              <p>Betweenness is useful for analyzing communication dynamics, but should be used with care. A high betweenness count could indicate someone holds authority over disparate clusters in a network, or just that they are on the periphery of both clusters.</p>
+              <BR>
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal2">More info</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box iconbox-pink">
+              <h4><a href="">Closeness Centrality</a></h4>
+              <p>Closeness centrality can help find good ‘broadcasters’, but in a highly-connected network, you will often find all nodes have a similar score. What may be more useful is using Closeness to find influencers in a single cluster.</p>
+              <BR><BR>
+              <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal3">More info</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+<!-- ======= Testimonials Section ======= -->
+    <!-- <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Force Directed Graphs</h2>
+          <h3>How does it work?</h3>
+          <h4>Nodes are represented as points in a plane that are electrically charged and apply repulsive forces against each other. Edges connect these points simulating a spring-force, attracting adjacent nodes.
+          </h4>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Degree centrality is the simplest measure of node connectivity. Sometimes it’s useful to look at in-degree (number of inbound links) and out-degree (number of outbound links) as distinct measures.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="w209/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Degree Centrality</h3>
+                <h7>Assigns an importance score based simply on the number of links held by each node.</h7>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Betweenness is useful for analyzing communication dynamics, but should be used with care. A high betweenness count could indicate someone holds authority over disparate clusters in a network, or just that they are on the periphery of both clusters.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="w209/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Betweenness Centrality</h3>
+                <h7>Measures the number of times a node lies on the shortest path between other nodes.</h7>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Closeness centrality can help find good ‘broadcasters’, but in a highly-connected network, you will often find all nodes have a similar score. What may be more useful is using Closeness to find influencers in a single cluster.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="w209/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <h3>Closeness Centrality</h3>
+                <h7>Scores each node based on their ‘closeness’ to all other nodes in the network.</h7>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  EigenCentrality then goes a step further by also taking into account how well connected a node is, and how many links their connections have, and so on through the network.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="w209/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Eigen Centrality</h3>
+                <h7>can identify nodes with influence over the whole network, not just those directly connected to it.</h7>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section> -->
+
+<!-- ======= About Section ======= -->
+<section id="FDG" class="about section-bg">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Force Directed Graphs</h2>
+      <h3>How does it work?</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+        <img src="w209/static/assets/img/graph_vis_3d_4.png" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <h4>Nodes are represented as points in a plane that are electrically charged and apply repulsive forces against each other. Edges connect these points simulating a spring-force, attracting adjacent nodes.</h4> <br><br>
+          <ul>
+            <li><i class="bx-check-double"></i> Helpful in dealing with huge, complex networks of connected data</li><br>
+            <li><i class="bx-check-double"></i> Clearly identifies connected subnetworks and positions them carefully, making it easier to compare clusters of nodes in different parts of the network.</li><br>
+            <li><i class="bx-check-double"></i> Minimizes overlaps in the graph, evenly distributes nodes and links, and organizes items so that the links are of similar length.</li><br>
+            <li><i class="bx-check-double"></i> Makes it clear, reliable for any type or size of the dataset, since the focus is on finding pattern and symmetries.</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</section><!-- End About Section -->
+
+  <section id="hero-modules" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="section-title">
+        <h3>Key aspects of this Project</h3>
+      </div>
+      <div class="row justify-content-center">
+          <div class="row icon-boxes">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box">
+                <!-- <div class="icon"><i class="ri-stack-line"></i></div> -->
+                <h4 class="title"><a href="">Viz Design</a></h4>
+                <ul>
+                  <li>Use of D3 force library.</li>
+                  <li>Depicting characters and their relationships.</li>
+                  <li>In short, two characters are connected if they speak together within the same scene.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box">
+                <!-- <div class="icon"><i class="ri-palette-line"></i></div> -->
+                <h4 class="title"><a href="">Target Audience</a></h4>
+                <ul>
+                  <li>Graph data platform users (neo4j, ArangoDB, GraphDB, etc.).</li>
+                  <li>Large Organizations and enterprises.</li>
+                  <li>Social network and large-scale network analysis users.</li>
+                  <li>Data Enthusiasts (Connecting movie characters, etc.).</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon-box">
+                <!-- <div class="icon"><i class="ri-command-line"></i></div> -->
+                <h4 class="title"><a href="">Data Source</a></h4>
+                <ul>
+                  <li>From a repository containing the social network of Star Wars characters extracted from movie scripts.</li>
+                  <li>The data contains characters and links from episodes I to VII.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
+              <div class="icon-box">
+                <!-- <div class="icon"><i class="ri-fingerprint-line"></i></div> -->
+                <h4 class="title"><a href="">Why Force Directed Graph?</a></h4>
+                <ul>
+                  <li>Dealing with huge, complex networks of connected data.</li>
+                  <li>Minimizes overlaps in the graph, evenly distributes nodes and links.</li>
+                  <li>Reliable for any type or size of the dataset.</li>
+                  <li>Clearly identifies connected subnetworks and positions them carefully.</li>
+                </ul>
+              </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+  </section>
+  <main class="container">
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+  <section id="faq" class="faq section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Design Considerations</h2>
+        <h3>Advanced visualization using D3 and Python</h3>
+        <h4>Inspiration. Ideation. Implemention.</h4>
+      </div>
+
+      <div class="faq-list">
+        <ul>
+          <li data-aos="fade-up">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Why D3 and D3-Force Directed library?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+              <p>
+                D3.js is open-source, creates dynamic and interactive data visualizations, is highly customizable and most importatly, it's fun! <br>
+                D3-Force Directed Graph for social networks is the best choice for visualiazation. D3-force directed graphs can be used to analyze data relationships because the nodes and edges show the data connections intuitively and allow easy graph explorations (can be done via Graph Query Language. The graph data can be updated by synchronizing the operations on the DOM. <br>
+                In short, D3 and D3-force directed graphs are perfectly suited to visualiaze complex social networks such as the Star Wars series!
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Use of NetworkX to generate graph metrics<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                We used NetworX Python package to generate graph centrality metrics such as degree and betwneenness centralities to show the character importance of our Star Wars visualiazation. NetworkX allows to "create, manipulate, and study the structure, dynamics, and functions of complex graph networks" -- requirements that we had while explaining journey of characters in our project.
+
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">D3-Force and JSON issues<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                We realized that the D3-force library code worked with JSON files where the source and index were in the form of indices (by default our dataset was in the zero-indexed form). However, when we switched to a more generic format with the source and target links defined strings, the library threw up TypeError: e[u.source.index] is undefined. We used approaches discussed by Mike Bostock on his examples and various implementations to get over this hurdle.
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Iterations, ideation and more iterations...<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                We probablty went through at least five rounds of iterations and kept learning more d3 nuances along the way.
+              </p>
+            </div>
+          </li>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">D3-Force hyperparameter tuning<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Some of the important hyperparameters we tuned to get to the current state were: <span style="font-family: 'Courier New', monospace;">forceCenter, forceX, forceY, alpha, alphaDecay</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+    <!-- section-bg  -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+        <div class="section-title">
+          <h2>Market Potential</h2>
+        </div>
+        <div class="row justify-content-end">
+          <!-- <p class="fw-bold">Metrics</p> -->
+
+          <div class="col-sm d-md-flex align-items-md-center">
+            <div class="count-box">
+              <span data-purecounter-start="5" data-purecounter-end="30" data-purecounter-duration="6" class="purecounter"></span>
+              <p>Graph involved in Decision Making (%)</p>
+            </div>
+          </div>
+
+          <div class="col-sm d-md-flex align-items-md-center">
+            <div class="count-box">
+              <span data-purecounter-start="30" data-purecounter-end="70" data-purecounter-duration="6" class="purecounter"></span>
+              <p>Innovations fueled by Graph Technology (%)</p>
+            </div>
+          </div>
+
+          <div class="col-sm d-md-flex align-items-md-center">
+            <div class="count-box">
+              <span data-purecounter-start="0.9" data-purecounter-end="5.1" data-purecounter-duration="6" class="purecounter"></span>
+              <p>Market by 2026 ($Billion)</p>
+            </div>
+          </div>
+
+          <div class="col-sm d-md-flex align-items-md-center">
+            <div class="count-box">
+              <span data-purecounter-start="12" data-purecounter-end="22.5" data-purecounter-duration="6" class="purecounter"></span>
+              <p>Compound Annual Growth (%)</p>
+            </div>
+          </div>
+
+          <!-- <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="2" class="purecounter"></span>
+              <p>Years of experience</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+            <div class="count-box">
+              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="2" class="purecounter"></span>
+              <p>Awards</p>
+            </div>
+          </div> -->
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= About Video Section ======= -->
+    <section id="about-video" class="about-video">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-6 video-box align-self-baseline" data-aos="fade-right" data-aos-delay="100">
+            <img src="w209/static/assets/img/graph_vis_3d.png" class="img-fluid" alt="">
+            <a href="https://www.youtube.com/watch?v=GekQqFZm7mA" class="glightbox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+
+          <div class="col-lg-6 pt-3 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+            <h3>Why Graph Database will change your life...</h3>
+            <p class="fst-italic">
+              Beyond the 70% increase in data and analytics innovations fueled by graph technology that Gartner predicts will take place by 2025, the firm also predicts that by 2023 graph technology will play a role in the decision-making process for 30% of organizations worldwide.
+            </p>
+            <ul>
+              <li><i class="bx bx-check-double"></i>Context: Knowledge graphs provide context to algorithms by integrating various types of information into an ontology and flexibility to add new
+                derived knowledge on the go.</li>
+              <li><i class="bx bx-check-double"></i>Efficiency: Once desired entities and relations are available, knowledge graphs offer computational efficiencies
+                for querying stored data resulting in effective use of data for generating insights</li>
+              <li><i class="bx bx-check-double"></i> Explainability: Large networks of entities and relations provide solutions for the issue of understandability by
+                integrating the meaning of entities available within the graph itself. As such, knowledge graphs become intrinsically explainable</li>
+              <!-- <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li> -->
+            </ul>
+            <p>
+              The cardinal benefit knowledge graphs offer organizations is a scalable means of amassing enterprise knowledge that focuses on its relationships. When machine learning and AI are added, organizations can incorporate greater amounts of knowledge that are more profound.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======= Clients Section ======= -->
+    <!-- <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-1.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-2.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-3.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-4.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center" data-aos="zoom-in">
+            <img src="w209/assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div>
+
+        </div>
+
+      </div>
+    </section>End Clients Section -->
+
+
+
+
+
+    <!-- ======= Cta Section ======= -->
+    <!-- <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-in">
+        <div class="text-center">
+          <h3>Call To Action</h3>
+          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <a class="cta-btn" href="#">Call To Action</a>
+        </div>
+      </div>
+    </section>End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <!-- <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Portfolio</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="300">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="w209/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="w209/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div> -->
+    <!-- </section>End Portfolio Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Team</h2>
+          <p>Data enthusiasts teaming for the Spring 2022 data viz semester at UC Berkeley's MIDS program -- bringing together our love of visualization and data into the world of Star Wars!
+          </p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="member-img">
+                <img src="w209/static/assets/img/team/Vaibhav.png" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/beohar/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Vaibhav Beohar</h4>
+                <span>MIDS'22 Student</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="member-img">
+                <img src="w209/static/assets/img/team/Vaishali.jpeg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/khandelwalvaishali/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Vaishali Khandelwal</h4>
+                <span>MIDS'22 Student</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="member-img">
+                <img src="w209/static/assets/img/team/Rohit.jpeg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/sroheeth/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Rohit Srinivas</h4>
+                <span>MIDS'22 Student</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div> -->
+              <!-- <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+              </div> -->
+            <!-- </div> -->
+          </div>
+
+        </div>
+
+      </div>
+    </section><!--End Team Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <!-- <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="zoom-im" data-aos-delay="100">
+            <div class="box">
+              <h3>Free</h3>
+              <h4><sup>$</sup>0<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li class="na">Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="box featured">
+              <h3>Business</h3>
+              <h4><sup>$</sup>19<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="100">
+            <div class="box">
+              <h3>Developer</h3>
+              <h4><sup>$</sup>29<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li>Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div> -->
+    <!-- </section>End Pricing Section -->
+
+
+
+    <!-- ======= Contact Section ======= -->
+    <!-- <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-3">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div> -->
+    <!-- </section>End Contact Section -->
+
+  </main><!-- End #main -->
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>Spring 2022</h3>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://observablehq.com/@d3/learn-d3" target="_blank">Learn D3.js</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/d3/d3-force" target="_blank">Force Directed Graphs</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://github.com/evelinag/StarWars-social-network" target="_blank">Data Fabric & citation</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Any Questions</h4>
+            <p>We would love to hear from you, post any questions you have</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Email Us">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>UC Berkeley</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
+          Designed by <a>Vaibhav, Vaishali, and Rohit</a>
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="w209/static/assets/vendor/purecounter/purecounter.js"></script>
+  <script src="w209/static/assets/vendor/aos/aos.js"></script>
+  <script src="w209/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="w209/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="w209/static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="w209/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="w209/static/assets/vendor/php-email-form/validate.js"></script>
+
+  <script type="module">
+    import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@berkeleyvis/star-wars-viz-with-network-metrics.js?v=3";
+    new Runtime().module(define, name => {
+      if (name === "chart2") return new Inspector(document.querySelector("#observablehq-chart2-6fc67812"));
+      if (name === "table_metrics") return new Inspector(document.querySelector("#observablehq-table_metrics-6fc67812"));
+      if (name === "viewof episode") return new Inspector(document.querySelector("#observablehq-viewof-episode-6fc67812"));
+      return ["size", "ForceGraph"].includes(name);
+    });
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="w209/static/assets/js/main.js"></script>
+
+</body>
+
+</html>
